@@ -15,7 +15,7 @@ CF_API_URL="https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records"
 # Function to fetch the DNS record ID
 fetch_record_id() {
     response=$(curl -s -X GET "$CF_API_URL?type=$RECORD_TYPE&name=$RECORD_NAME" \
-     -H "Authorization: Bearer TR_iP6VWCd3QC7vtHDXQ4ypOhGZsQQVnj8R805NL" \
+     -H "Authorization: $CF_API_KEY" \
      -H "Content-Type: application/json")
     echo $(echo $response | grep -Po '"id":"\K[^"]+')
 }
@@ -24,7 +24,7 @@ fetch_record_id() {
 delete_dns_record() {
     local record_id=$1
     curl -s -X DELETE "$CF_API_URL/$record_id" \
-        -H "Authorization: Bearer TR_iP6VWCd3QC7vtHDXQ4ypOhGZsQQVnj8R805NL" \
+        -H "Authorization: $CF_API_KEY" \
         -H "Content-Type: application/json"
 }
 

@@ -16,11 +16,13 @@ chmod +x *
 
 Change the credentials (API_KEY, EMAIL, ZONE_ID)
 
-Reference to get this credentials:
+Reference to get the credentials:
 
 * https://developers.cloudflare.com/fundamentals/api/get-started/create-token/
 * https://developers.cloudflare.com/fundamentals/setup/find-account-and-zone-ids/
 
+
+For using this all script, make sure you have installed jsontools / jq in Linux
 
 ### Get Record
 
@@ -42,7 +44,6 @@ Usage: ./add.sh <subdomain> <record type> <record content> <proxied> <TTL>
 
 ### Delete Record
 
-For using this delete script, make sure you have installed jsontools / jq in Linux
 ```
 Usage: ./delete.sh <record name> <record type>
 
